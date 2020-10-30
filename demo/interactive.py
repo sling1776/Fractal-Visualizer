@@ -43,7 +43,7 @@ def colorOfThePixel(c, verbose=False):
     for i in range(MAX_ITERATIONS):
         z = z * z + c  # Get z1, z2, ...
         if verbose:
-            print(f"i={i+1:<2} abs(Z)={abs(z):=.5} Z={z}")
+            print(f"i={i+1:<2} C={c} Z={z} abs(Z)={abs(z):=.5}")
         if abs(z) > 2:
             if verbose:
                 print(f"Escaped on iteration #{i+1}! abs(Z)={abs(z):=.5} Z={z}\n")
@@ -101,7 +101,7 @@ Press [H] to display this help message
 """)
 
 images = {
-        'fullmandelbrot': {
+        'mandelbrot': {
             'centerX': -0.6,
             'centerY': 0.0,
             'axisLen': 2.5,

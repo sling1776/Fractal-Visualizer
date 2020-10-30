@@ -97,7 +97,7 @@ def pixelsWrittenSoFar(rows, cols):
 # switch between them by entering the name of the image you want to generate
 # into the variable 'image'.
 images = {
-        'fullmandelbrot': {
+        'mandelbrot': {
             'centerX': -0.6,
             'centerY': 0.0,
             'axisLen': 2.5,
