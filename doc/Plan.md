@@ -3,29 +3,76 @@
 *Adapted from https://htdp.org/2020-5-6/Book/part_preface.html*
 
 # 0.  From Problem Analysis to Data Definitions
+The issue that I have is to refactor this program to be a Program System's Product. I 
+am going to be redesigning the basic structure of the files essentially getting rid of 
+the two given files and replacing them with 6 other files. 
 
-**Problem Analysis is the process of understanding the problem the software
-will address and to document in detail what the software system needs to do.
-In the real world this phase demands close interaction between developers and
-the client.  Ideally, end-users of the system are interviewed for their input.**
+Prior to Designing it, I will go through the code and ensure that there are no obvious 
+errors or ambiguities in the code that need to be removed and won't change the flow of the
+program. basically it is just removing nonessential things:
 
-**In this course you will receive detailed requirements in the form of the
-assignment description.  I stand-in for the client and end-users when you have
-questions concerning their needs and desires.**
+This is the order I removed and changed lines in the files. the file line numbers change as the file changed.
 
-**In this phase of the design process you should use [The Feynman
-Technique](https://www.youtube.com/watch?v=tkm0TNFzIeg) To ensure that you
-understand what is being asked of you.**
-
-**The output of this phase of the development process is a restatement of the
-requirements in your own words.  Putting new problems into your own words will
-help you identify your "Known knowns" and your "known unknowns".**
-
-**As part of your restatement of the problem identify information that must be
-represented and decide how to represent in the chosen programming language.**
-
-**Formulate data definitions and illustrate them with examples.**
-
+Julia_fractal.py:
+    These lines found in the file src/julia_fractal.py at line 41 are overly complex:
+    ```
+        for key in dictionary:
+            if key in dictionary:
+                if key == name:
+                    value = dictionary[key]
+                    return key
+    ```
+    It can be replaced without changing the meaning of the program to:
+    ```
+    for key in dictionary:
+        if key == name:
+            return key
+    ```   
+    line 26 and 29 in the file src/julia_fractal.py are is unreachable. 
+    ```
+    z += z + c  
+    ...    
+    return grad[78]
+    ```
+    simply removed the lines.
+    lines 68-76 are repetitive as well as unused. 
+    ```
+        canvas.pack()  # This seems repetitive
+        canvas.pack()  # But it is how Larry wrote it
+        canvas.pack()  # Larry's a smart guy.  I'm sure he has his reasons.
+        area_in_pixels = 512 * 512
+        canvas.pack()  # Does this even matter?
+        # At this scale, how much length and height of the
+        # imaginary plane does one pixel cover?
+    ```
+    simply removed the lines.   
+    line 71-72 are repetitive and unused:
+    ```
+    fraction = int(512 / 64)
+    canvas.pack()
+    ```
+    removed lines
+    
+mbrot_fractal.py:
+    line 48 in mbrot_fractal.py is extra. it never gets reached.
+    ```
+    return gradient[MAX_ITERATIONS]
+    ```
+    removed line
+    line 64 declares a variable that is never used. 
+    ```
+    maxy = fractal['centerY'] + (fractal['axisLen'] / 2.0)
+    ```
+    removed line
+    line 75-76 declare variable never used:
+    ```
+    portion = int(512 / 64)
+    total_pixels = 1048576
+    ```
+    removed lines
+    
+Dead code and useless code should be removed at this point. 
+There are still many other issues with the code that will be changed as needed. 
 
 # 1.  System Analysis
 

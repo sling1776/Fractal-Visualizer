@@ -1,10 +1,10 @@
 import unittest
 
-from Testing import TestMandelbrot, TestJulia
+from Testing import TestMandelbrot, TestJulia, TestIntegration
 
 
 suite = unittest.TestSuite()
-tests = (TestMandelbrot.TestMandelbrot, TestJulia.TestJulia)
+tests = (TestMandelbrot.TestMandelbrot, TestJulia.TestJulia, TestIntegration.TestIntegration)
 for test in tests:
     suite.addTest(unittest.makeSuite(test))
 

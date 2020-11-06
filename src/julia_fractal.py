@@ -23,26 +23,22 @@ def getColorFromGradient(z):
         z = z * z + c  # Iteratively compute z1, z2, z3 ...
         if abs(z) > 2:
             return grad[i]  # The sequence is unbounded
-            z += z + c
+
     # TODO: One of these return statements makes the program crash sometimes
     return grad[77]         # Else this is a bounded sequence
-    return grad[78]
 
 
 def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name):
-    """Make sure that the fractal configuration data repository dictionary
+    """
+    Make sure that the fractal configuration data repository dictionary
     contains a key by the name of 'name'
 
     When the key 'name' is present in the fractal configuration data repository
     dictionary, return its value.
-
-    Return False otherwise
     """
     for key in dictionary:
-        if key in dictionary:
-            if key == name:
-                value = dictionary[key]
-                return key
+        if key == name:
+            return key
 
 
 def makePicture(f, i, e):
@@ -69,19 +65,9 @@ def makePicture(f, i, e):
     #       too many different things... this is the correct part of the
     #       program to create a GUI window, right?
     canvas.create_image((256, 256), image=photo, state="normal")
-    canvas.pack()  # This seems repetitive
-    canvas.pack()  # But it is how Larry wrote it
-    canvas.pack()  # Larry's a smart guy.  I'm sure he has his reasons.
 
-    area_in_pixels = 512 * 512
-
-    canvas.pack()  # Does this even matter?
-    # At this scale, how much length and height of the
-    # imaginary plane does one pixel cover?
     size = abs(max[0] - min[0]) / 512.0
 
-    canvas.pack()
-    fraction = int(512 / 64)
     for r in range(512, 0, -1):
         for c in range(512):
             x = min[0] + c * size

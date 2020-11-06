@@ -45,7 +45,6 @@ def colorOfThePixel(c, gradient):
             return gradient[i]  # The sequence is unbounded
     # XXX: one of these return statements made the program crash...
     return gradient[MAX_ITERATIONS - 1]   # Indicate a bounded sequence
-    return gradient[MAX_ITERATIONS]
 
 
 def paint(fractals, imagename):
@@ -62,7 +61,6 @@ def paint(fractals, imagename):
     minx = fractal['centerX'] - (fractal['axisLen'] / 2.0)
     maxx = fractal['centerX'] + (fractal['axisLen'] / 2.0)
     miny = fractal['centerY'] - (fractal['axisLen'] / 2.0)
-    maxy = fractal['centerY'] + (fractal['axisLen'] / 2.0)
 
     # Display the image on the screen
     canvas = Canvas(window, width=512, height=512, bg='#ffffff')
@@ -73,8 +71,6 @@ def paint(fractals, imagename):
     # pixel take?
     pixelsize = abs(maxx - minx) / 512
 
-    portion = int(512 / 64)
-    total_pixels = 1048576
     for row in range(512, 0, -1):
         for col in range(512):
             x = minx + col * pixelsize
