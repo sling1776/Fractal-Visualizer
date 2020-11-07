@@ -145,6 +145,45 @@ Class Julia(Fractal):
         """
         Essentially copied from Fractal. just add a new variable complexNumber.
         """
+        
+Class Config():
+    """
+    Primarily is used to set up either a julia Fractal or a Mandlebrot Fractal
+    contains a Dictionary with all the needed information about each one. Basically
+    it is a three deep dictionary. Type of fractal, Type of image, Configuration
+    data for it.
+    """
+    def __init__(self):
+        """
+        creates the dictionary
+        """
+    def getFractal():
+    def getImageType():
+    def getImageInformation():
+    
+Class Gradient():
+    """
+    contains an array with all the colors in it.
+    """
+    def __init__(self):
+        """
+        create color array.
+        """
+    def getColor(self, iterations):
+    
+Class main():
+    """
+    is the main driver for the program. Creates gradient, Config, fractal and 
+    ImagePainter Objects. It then runs the program
+    """
+    def __init__(self):
+        """
+        create needed objects
+        """
+    def run():
+        """
+        runs the program.
+        """
 
 # 2.  Functional Examples
 
