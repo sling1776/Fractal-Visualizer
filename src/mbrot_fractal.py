@@ -43,7 +43,6 @@ def colorOfThePixel(c, gradient):
         if abs(z) > 2:
             z = 2.0
             return gradient[i]  # The sequence is unbounded
-    # XXX: one of these return statements made the program crash...
     return gradient[MAX_ITERATIONS - 1]   # Indicate a bounded sequence
 
 

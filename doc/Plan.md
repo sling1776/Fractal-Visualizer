@@ -76,21 +76,75 @@ There are still many other issues with the code that will be changed as needed.
 
 # 1.  System Analysis
 
-**Analyze the flow of data throughout the program.  Does the program get input
-from the user?  If so, does it come from interactive prompts or from
-command-line arguments?  Is data incorporated from a file on the disk, from a
-database or from the internet?**
+Class ImagePainter():
+    """
+    Stores the width and height of the Tkinter window. It creates the window and 
+    creates the image of the fractal. It also has the option to save the image.
+    """
+    def __init__(self, width, height):
+        """
+        stores the width and height. It also calls setUpGUI to create a ne Tkinter 
+        window. It also stores the fractal that is going to be used to create the 
+        image.
+        """
+    def setUpGUI(self):
+        """
+        sets up a new tkinter window given the width and height.
+        """
+    def makeImage(self):
+        """
+        takes a Fractal Object and creates the image. Calls makeRow() repeatedly and 
+        updates the image after every call.
+        """
+    def makeRow(self, column):
+        """
+        Takes a fractal and calculates the colors of each pixel in a row by calling the
+        Fractal Objects calculateColor method. 
+        """
+    def saveImage(self):
+        """
+        gets the name from the fractal and then saves the image as a PNG to the CWD.
+        """
+    def getWidth():
+    def getHeight():
+    
+Class Fractal():
+    """
+    Is a parent class for the mandlebrot and julia classes. It uses the Config object
+    to determine its minX, minY and maxX. It can calculate the color of a pixel and
+    can calculate the needed complex numbers to get the color.
+    """
+    def __init__(self, name, gradient, minX, maxX, minY):
+        """
+        stores name and min/max data. Stores Gradient.
+        """
+    def calculateColor():
+        """
+        calculates the color of a given pixel
+        """
+    def calculateComplexNumber():
+        """
+        calcualtes the needed complex numbers for color calculations
+        """
+    def getName():
+    
+Class Mandelbrot(Fractal):
+    """
+    Is an extention of Fractal. Overwrites a single complex number.
+    """
+    def __init__(self, name gradient, minX, maxX, minY):
+        """
+        Essentially copied from Fractal. just add a new variable complexNumber.
+        """
 
-**How is output given?  On the screen in the form of text or graphics?  Are
-output files created, and what form do they take?**
-
-**Identify the non-trivial formulas you need to create.  If there aren't any then
-state "no formulas" in this section.**
-
-**State what kind of data each desired function consumes and produces.  Formulate
-a concise description of what the function computes.  Define a stub that lives
-up to the signature.**
-
+Class Julia(Fractal):
+    """
+    Is an extention of Fractal. Overwrites a single complex number.
+    """
+    def __init__(self, name gradient, minX, maxX, minY):
+        """
+        Essentially copied from Fractal. just add a new variable complexNumber.
+        """
 
 # 2.  Functional Examples
 
