@@ -111,26 +111,26 @@ grad = [
 #
 # TODO: Maybe it would be a good idea to incorporate the complex value `c` into
 # this configuration dictionary instead of hardcoding it into this program?
-f = {
-        'fulljulia': {
-            'centerX':     0.0,
-            'centerY':     0.0,
-            'axisLength':  4.0,
-            },
-
-        'hourglass': {
-            'centerX':     0.618,
-            'centerY':     0.00,
-            'axisLength':  0.017148277367054,
-        },
-
-        'lakes': {
-            'centerX': -0.339230468501458,
-            'centerY': 0.417970758224314,
-            'axisLength': 0.164938488846612,
-            },
-
-        }
+# f = {
+#         'fulljulia': {
+#             'centerX':     0.0,
+#             'centerY':     0.0,
+#             'axisLength':  4.0,
+#             },
+#
+#         'hourglass': {
+#             'centerX':     0.618,
+#             'centerY':     0.00,
+#             'axisLength':  0.017148277367054,
+#         },
+#
+#         'lakes': {
+#             'centerX': -0.339230468501458,
+#             'centerY': 0.417970758224314,
+#             'axisLength': 0.164938488846612,
+#             },
+#
+#         }
 
 
 WHITE = '#ffffff'

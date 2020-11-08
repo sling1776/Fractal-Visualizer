@@ -170,6 +170,7 @@ Class Gradient():
         create color array.
         """
     def getColor(self, iterations):
+    def getlength
     
 Class main():
     """
