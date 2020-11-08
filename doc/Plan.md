@@ -187,6 +187,43 @@ Class main():
 
 # 2.  Functional Examples
 
+Class ImagePainter:
+    setUpGUI:
+        create GUI
+        make image
+        make canvas and pack it to the GUI
+    save image
+        open a new file
+        write image to the file
+    makeimage
+        call makeRow
+    makeRow
+        call calculate color from the fractal object
+        make the row with the colors. 
+        update the row in the GUI
+    getWidth
+    GetHeight
+    getPixelSize
+    
+Class Fractal
+    calculateColor
+        will calculate the number of iterations needed.  
+        return that number
+    calculateComplexNumber
+        calculate the needed complex number
+        return it
+    getName()
+    
+Class Config
+    getImageInformation
+    getImage
+    getFractal
+    
+Class Gradient
+    getColor
+        
+        
+
 **Design a process for obtaining the output from the input.  Consider both *good*
 and *bad* inputs.  Find or create examples of both kinds of input.**
 
