@@ -223,53 +223,13 @@ Class Config
 Class Gradient
     getColor
         
-        
-
-**Design a process for obtaining the output from the input.  Consider both *good*
-and *bad* inputs.  Find or create examples of both kinds of input.**
-
-**Work out problem examples on paper, on a whiteboard or some other medium that
-is *not* your computer.  It is a mistake to begin writing executable code
-before you thoroughly understand what form the algorithm(s) must take.**
-
-**Instead, describe components of the system in *"pseudocode"*.  Expect to make
-lots of mistakes at this point.  You will find that it is much easier to throw
-away pseudocode than real code.**
-
-**Manually work through several examples that illustrate the program's overall
-purpose, as well as the purpose of each component of the finished system.  You
-will converge on a correct solution much faster if you feel comfortable making
-mistakes as you go.**
-
-**This phase involves the use of many levels of abstraction to decompose the
-problem into manageable components, and design strategies for implementing each
-component.  Components may be functions, modules or classes.**
-
 
 # 3.  Function Template
-
-**Combine the function stubs written in step #2 with pseudocode from step #3.
-Comment out the pseudocode, leaving a valid program that compiles/runs without
-errors.  At this stage your program doesn't quite work, but it also doesn't
-crash.**
 
 
 # 4.  Implementation
 
-**This is the only part of the process focused on writing code in your chosen
-programming language.**
-
-**One by one translate passages of pseudocode into valid code.  Fill in the gaps
-in the function template.  Exploit the purpose statement and the examples.**
-
-**If you were thorough in the previous steps and are familiar with your
-programming system this part will go by very quickly and the code will write
-itself.**
-
-**When you are learning a new programming language or an unfamiliar library this
-phase can be slow and difficult.  As you gain experience with the relevant
-technologies you will spend less and less time in this phase of the process.**
-
+Done
 
 # 5.  Testing
 
