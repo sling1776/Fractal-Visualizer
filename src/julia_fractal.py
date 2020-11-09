@@ -15,7 +15,7 @@ def getColorFromGradient(z):
 
     # I feel bad about all of the global variables I'm using.
     # There must be a better way...
-    global grad
+    # global grad
     global win
 
     # Here 76 refers to the number of colors in the gradient
@@ -28,17 +28,17 @@ def getColorFromGradient(z):
     return grad[77]         # Else this is a bounded sequence
 
 
-def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name):
-    """
-    Make sure that the fractal configuration data repository dictionary
-    contains a key by the name of 'name'
-
-    When the key 'name' is present in the fractal configuration data repository
-    dictionary, return its value.
-    """
-    for key in dictionary:
-        if key == name:
-            return key
+# def getFractalConfigurationDataFromFractalRepositoryDictionary(dictionary, name):
+#     """
+#     Make sure that the fractal configuration data repository dictionary
+#     contains a key by the name of 'name'
+#
+#     When the key 'name' is present in the fractal configuration data repository
+#     dictionary, return its value.
+#     """
+#     for key in dictionary:
+#         if key == name:
+#             return key
 
 
 def makePicture(f, i, e):
@@ -46,7 +46,7 @@ def makePicture(f, i, e):
     Assumes the image is 512x512 pixels."""
 
     global win
-    global grad
+    # global grad
     global photo
 
     # Correlate the boundaries of the PhotoImage object to the complex
@@ -66,15 +66,15 @@ def makePicture(f, i, e):
     #       program to create a GUI window, right?
     canvas.create_image((256, 256), image=photo, state="normal")
 
-    size = abs(max[0] - min[0]) / 512.0
+    # size = abs(max[0] - min[0]) / 512.0
 
-    for r in range(512, 0, -1):
-        for c in range(512):
-            x = min[0] + c * size
-            y = min[1] + r * size
-            c2 = getColorFromGradient(complex(x, y))
-            photo.put(c2, (c, 512 - r))
-        win.update()  # display a row of pixels
+    # for r in range(512, 0, -1):
+    #     for c in range(512):
+    #         x = min[0] + c * size
+    #         y = min[1] + r * size
+    #         c2 = getColorFromGradient(complex(x, y))
+    #         photo.put(c2, (c, 512 - r))
+    #     win.update()  # display a row of pixels
 
 
 # This is the color gradient, which defines the palette that images are drawn
@@ -82,24 +82,24 @@ def makePicture(f, i, e):
 #
 # TODO: It would be nice to add more or different colors to this list, but it's
 # just so much work to calculate all of the in-between shades!
-grad = [
-        '#ffe4b5', '#ffe5b2', '#ffe7ae', '#ffe9ab', '#ffeaa8', '#ffeda4',
-        '#ffefa1', '#fff29e', '#fff49a', '#fff797', '#fffb94', '#fffe90',
-        '#fcff8d', '#f8ff8a', '#f4ff86', '#f0ff83', '#ebff80', '#e7ff7c',
-        '#e2ff79', '#ddff76', '#d7ff72', '#d2ff6f', '#ccff6c', '#c6ff68',
-        '#bfff65', '#b9ff62', '#b2ff5e', '#abff5b', '#a4ff58', '#9dff54',
-        '#95ff51', '#8dff4e', '#85ff4a', '#7dff47', '#75ff44', '#6cff40',
-        '#63ff3d', '#5aff3a', '#51ff36', '#47ff33', '#3eff30', '#34ff2c',
-        '#2aff29', '#26ff2c', '#22ff30', '#1fff34', '#1cff38', '#18ff3d',
-        '#15ff42', '#11ff47', '#0eff4c', '#0bff51', '#07ff57', '#04ff5d',
-        '#01ff63', '#00fc69', '#00f970', '#00f677', '#00f27d', '#00ef83',
-        '#00ec89', '#00e88e', '#00e594', '#00e299', '#00de9e', '#00dba3',
-        '#00d8a7', '#00d4ab', '#00d1af', '#00ceb3', '#00cab7', '#00c7ba',
-        '#00c4be', '#00c0c0', '#00b7bd', '#00adba', '#00a4b6', '#009cb3',
-        '#0093b0', '#008bac', '#0082a9', '#007ba6', '#0073a2', '#006b9f',
-        '#00649c', '#005d98', '#005695', '#004f92', '#00498e', '#00438b',
-        '#003d88', '#003784', '#003181', '#002c7e', '#00277a', '#002277',
-        ]
+# grad = [
+#         '#ffe4b5', '#ffe5b2', '#ffe7ae', '#ffe9ab', '#ffeaa8', '#ffeda4',
+#         '#ffefa1', '#fff29e', '#fff49a', '#fff797', '#fffb94', '#fffe90',
+#         '#fcff8d', '#f8ff8a', '#f4ff86', '#f0ff83', '#ebff80', '#e7ff7c',
+#         '#e2ff79', '#ddff76', '#d7ff72', '#d2ff6f', '#ccff6c', '#c6ff68',
+#         '#bfff65', '#b9ff62', '#b2ff5e', '#abff5b', '#a4ff58', '#9dff54',
+#         '#95ff51', '#8dff4e', '#85ff4a', '#7dff47', '#75ff44', '#6cff40',
+#         '#63ff3d', '#5aff3a', '#51ff36', '#47ff33', '#3eff30', '#34ff2c',
+#         '#2aff29', '#26ff2c', '#22ff30', '#1fff34', '#1cff38', '#18ff3d',
+#         '#15ff42', '#11ff47', '#0eff4c', '#0bff51', '#07ff57', '#04ff5d',
+#         '#01ff63', '#00fc69', '#00f970', '#00f677', '#00f27d', '#00ef83',
+#         '#00ec89', '#00e88e', '#00e594', '#00e299', '#00de9e', '#00dba3',
+#         '#00d8a7', '#00d4ab', '#00d1af', '#00ceb3', '#00cab7', '#00c7ba',
+#         '#00c4be', '#00c0c0', '#00b7bd', '#00adba', '#00a4b6', '#009cb3',
+#         '#0093b0', '#008bac', '#0082a9', '#007ba6', '#0073a2', '#006b9f',
+#         '#00649c', '#005d98', '#005695', '#004f92', '#00498e', '#00438b',
+#         '#003d88', '#003784', '#003181', '#002c7e', '#00277a', '#002277',
+#         ]
 
 
 # This dictionary contains the different views of the Julia set you can make
@@ -151,8 +151,8 @@ if __name__ == '__main__':
             print(f"\t{i}")
         sys.exit(1)
 
-    else:
-        i = getFractalConfigurationDataFromFractalRepositoryDictionary(f, sys.argv[1])
+    # else:
+    #     i = getFractalConfigurationDataFromFractalRepositoryDictionary(f, sys.argv[1])
 
     # Set up the GUI so that we can display the fractal image on the screen
     win = Tk()

@@ -46,22 +46,22 @@
 #     return gradient[MAX_ITERATIONS - 1]   # Indicate a bounded sequence
 
 
-def paint(fractals, imagename):
-    """Paint a Fractal image into the TKinter PhotoImage canvas.
-    This code creates an image which is 640x640 pixels in size."""
+# def paint(fractals, imagename):
+#     """Paint a Fractal image into the TKinter PhotoImage canvas.
+#     This code creates an image which is 640x640 pixels in size."""
 
     # global gradient
     # global img
 
-    fractal = fractals[imagename]
+    # fractal = fractals[imagename]
 
     # Figure out how the boundaries of the PhotoImage relate to coordinates on
     # the imaginary plane.
-    minx = fractal['centerX'] - (fractal['axisLen'] / 2.0)
-    maxx = fractal['centerX'] + (fractal['axisLen'] / 2.0)
-    miny = fractal['centerY'] - (fractal['axisLen'] / 2.0)
-
-    # # Display the image on the screen
+    # minx = fractal['centerX'] - (fractal['axisLen'] / 2.0)
+    # maxx = fractal['centerX'] + (fractal['axisLen'] / 2.0)
+    # miny = fractal['centerY'] - (fractal['axisLen'] / 2.0)
+    #
+    # # # Display the image on the screen
     # canvas = Canvas(window, width=512, height=512, bg='#ffffff')
     # canvas.pack()
     # canvas.create_image((256, 256), image=img, state="normal")
@@ -130,22 +130,22 @@ def pixelsWrittenSoFar(rows, cols):
         # }
 
 
-if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Please provide the name of a fractal as an argument")
-        for i in images:
-            print(f"\t{i}")
-        sys.exit(1)
-
-    elif sys.argv[1] not in images:
-        print(f"ERROR: {sys.argv[1]} is not a valid fractal")
-        print("Please choose one of the following:")
-        for i in images:
-            print(f"\t{i}")
-        sys.exit(1)
-
-    else:
-        image = sys.argv[1]
+# if __name__ == '__main__':
+#     if len(sys.argv) < 2:
+#         print("Please provide the name of a fractal as an argument")
+#         for i in images:
+#             print(f"\t{i}")
+#         sys.exit(1)
+#
+#     elif sys.argv[1] not in images:
+#         print(f"ERROR: {sys.argv[1]} is not a valid fractal")
+#         print("Please choose one of the following:")
+#         for i in images:
+#             print(f"\t{i}")
+#         sys.exit(1)
+#
+#     else:
+#         image = sys.argv[1]
 
     # # Set up the GUI so that we can paint the fractal image on the screen
     # window = Tk()

@@ -11,7 +11,7 @@ class Config:
         creates the dictionary
         """
         self.fractals = {
-            "mandlebrot": {
+            'mandlebrot': {
                 'mandelbrot': {
                     'centerX': -0.6,
                     'centerY': 0.0,
@@ -48,33 +48,33 @@ class Config:
                     'axisLen': 0.000051248888,
                 },
             },
-            "julia":{
+            'julia': {
                 'fulljulia': {
                     'centerX': 0.0,
                     'centerY': 0.0,
-                    'axisLength': 4.0,
+                    'axisLen': 4.0,
                 },
 
                 'hourglass': {
                     'centerX': 0.618,
                     'centerY': 0.00,
-                    'axisLength': 0.017148277367054,
+                    'axisLen': 0.017148277367054,
                 },
 
                 'lakes': {
                     'centerX': -0.339230468501458,
                     'centerY': 0.417970758224314,
-                    'axisLength': 0.164938488846612,
+                    'axisLen': 0.164938488846612,
                 },
 
             }
         }
 
-    def getFractal(self,name):
-        for fractalType in self.fractals:
-            for image in fractalType:
-                if image == name:
-                    return fractalType
+    def getFractal(self, name):
+        if name in self.fractals['julia']:
+            return "julia"
+        elif name in self.fractals['mandlebrot']:
+            return "mandlebrot"
 
     def getImageType(self, name, fractal):
         for image in self.fractals[fractal]:
@@ -82,4 +82,13 @@ class Config:
                 return image
 
     def getImageInformation(self, info, fractal, image):
-        return self.fractals[fractal[image[info]]]
+
+        return self.fractals[fractal][image][info]
+
+    def getListOfFractalImages(self):
+        myList = []
+        for i in self.fractals:
+            for j in self.fractals[i]:
+                myList.append(j)
+        return myList
+

@@ -1,6 +1,6 @@
 from Fractal import Fractal
 
-class Mandlebrot(Fractal):
+class Mandelbrot(Fractal):
     def __init__(self, name, gradient, minX, maxX, minY):
         Fractal.__init__(self, name, gradient, minX, maxX, minY)
         self.z = complex(0, 0)

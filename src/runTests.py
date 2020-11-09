@@ -1,12 +1,13 @@
 import unittest
 
-from Testing import TestMandelbrot, TestJulia, TestIntegration
+from Testing import TestIntegration
 
 
 suite = unittest.TestSuite()
-tests = (TestMandelbrot.TestMandelbrot, TestJulia.TestJulia, TestIntegration.TestIntegration)
-for test in tests:
-    suite.addTest(unittest.makeSuite(test))
+test = (TestIntegration.TestIntegration)
+# TestMandelbrot.TestMandelbrot, TestJulia.TestJulia,
+# for test in tests:
+suite.addTest(unittest.makeSuite(test))
 
 runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)

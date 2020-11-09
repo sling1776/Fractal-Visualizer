@@ -7,7 +7,7 @@ class ImagePainter():
         creates the image of the fractal. It also has the option to save the image.
         """
 
-    def __init__(self, width, height):
+    def __init__(self, width, height, fractal):
         """
         stores the width and height. It also calls setUpGUI to create a ne Tkinter
         window. It also stores the fractal that is going to be used to create the
@@ -15,27 +15,21 @@ class ImagePainter():
         """
         self.width = width
         self.height = height
+        self.fractal = fractal
+        self.window = Tk()
+        self.img = PhotoImage(width=512, height=512)
+        self.setUpGUI()
 
     def setUpGUI(self):
         """
         sets up a new tkinter window given the width and height.
         """
+        WHITE = '#ffffff'
         # Set up the GUI so that we can paint the fractal image on the screen
-        window = Tk()
-        img = PhotoImage(width=512, height=512)
-        paint(images, image)
-
-        # Save the image as a PNG
-        img.write(f"{image}.png")
-        print(f"Wrote image {image}.png")
-
-        # Call tkinter.mainloop so the GUI remains open
-        mainloop()
-
-        # Display the image on the screen
-        canvas = Canvas(window, width=512, height=512, bg='#ffffff')
+        canvas = Canvas(self.window, width=self.width, height=self.height, bg=WHITE)
         canvas.pack()
-        canvas.create_image((256, 256), image=img, state="normal")
+        canvas.create_image((256, 256), image=self.img, state="normal")
+
 
     def makeImage(self):
         """
@@ -43,29 +37,26 @@ class ImagePainter():
         updates the image after every call.
         """
         for row in range(512, 0, -1):
-            for col in range(512):
-                # x = minx + col * pixelsize
-                # y = miny + row * pixelsize
-                # color = colorOfThePixel(complex(x, y), gradient)
-                img.put(color, (col, 512 - row))
-            window.update()  # display a row of pixels
+            self.makeRow(row)
+            self.window.update()  # display a row of pixels
 
-    def makeRow(self, column):
+    def makeRow(self, row):
         """
         Takes a fractal and calculates the colors of each pixel in a row by calling the
         Fractal Objects calculateColor method.
         """
         for col in range(512):
-            # x = minx + col * pixelsize
-            # y = miny + row * pixelsize
-            # color = colorOfThePixel(complex(x, y), gradient)
-            img.put(color, (col, 512 - row))
-        window.update()  # display a row of pixels
+            color = self.fractal.calculateColor(row, col)
+            self.img.put(color, (col, 512 - row))
+
 
     def saveImage(self):
         """
         gets the name from the fractal and then saves the image as a PNG to the CWD.
         """
+        # Save the image as a PNG
+        self.img.write(f"{self.fractal.getName()}.png")
+        print(f"Wrote image {self.fractal.getName()}.png")
 
     def getWidth(self):
         return self.width
