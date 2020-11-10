@@ -233,23 +233,23 @@ Done
 
 # 5.  Testing
 
-**Articulate the examples given in step #2 as tests and ensure that each
-function passes all of its tests.  Doing so discovers mistakes.  Tests also
-supplement examples in that they help others read and understand the definition
-when the need arises—and it will arise for any serious program.**
+To test the file, simply navigate to the src/ directory and type in the commandline:
+    $ python runTests.py
+The tests will run themselves. You will notice that in the TestImplementation it is skipped.
+If you would like to test the implementation in addition to the functionality I have made it easy 
+for you. from the src/ directory type in the following commands:
+    $ cd Testing/TestDocs/NewPics
+    $ chmod +x  makePics.sh
+    $ ./makePics.sh
+These commands in order are:
+1. change the directory
+2. allow makePics.sh to run on the shell.
+3. run makePics.sh
 
-**As bugs are discovered and fixed, devise new test cases that will detect these
-problems should they return.**
+makePics.sh changes the main.py program briefly so it can run through all the various commands quickly
+without user interference. It then runs through all the commands that could be seen creating new 
+pictures for all the different types of fractals.
 
-**If you didn't come across any bugs (lucky you!) think of a possible flaw and a
-test that can be employed to screen for it.**
-
-**At a minimum you should create a document explaining step-by-step how a
-non-technical user may manually test your program to satisfy themselves that it
-operates correctly.  Explain the entire process starting how to launch the
-program, what inputs they should give and what results they should see at every
-step.  Provide test cases of good and bad inputs to catch both false positives
-and false negatives.  Any deviation from the expected outputs are errors.**
-
-**The ideal is to write an automated test to avoid all manual labor beyond
-launching the test.**
+Once it is done running through all the commands, you can navigate back to the src/ directory and run
+    $ python runTests.py 
+This time you will see that the TestImplementation did not get skipped and that it passed. 

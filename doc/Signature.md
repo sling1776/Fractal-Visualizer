@@ -6,3 +6,5 @@
 | November 06 | began removing obvious errors in code
 | November 07 | designed an object based refactoring of the program.
 | November 08 | finished plan and implementation.
+| November 09 | wrote tests for the program. wrote the user manual.
+

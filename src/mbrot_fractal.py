@@ -146,7 +146,7 @@
 # #
 # #     else:
 # #         image = sys.argv[1]
-# 
+#
 #     # # Set up the GUI so that we can paint the fractal image on the screen
 #     # window = Tk()
 #     # img = PhotoImage(width=512, height=512)
