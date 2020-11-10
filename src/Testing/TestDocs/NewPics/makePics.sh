@@ -4,7 +4,7 @@ if [[ "$PWD" =~ NewPics ]]
 then
     echo "Preparing to run python programs..."
     echo " "
-    sed -i '51s/.*/    /' "../../../main.py"
+    sed -i '43s/.*/    /' "../../../main.py"
 
     echo "Creating Mandelbrot Image..."
     python "../../../main.py" "mandelbrot"
@@ -27,7 +27,7 @@ then
 
     echo " "
     echo "Finishing python programs..."
-    sed -i '51s/.*/    mainloop()/' "../../../main.py"
+    sed -i '43s/.*/    mainloop()/' "../../../main.py"
     echo " "
     echo "Done!"
 

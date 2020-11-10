@@ -4,8 +4,8 @@ This is the Julia Fractal. It is an extension of the Fractal Class. It has the u
 and calculations needed for the specific fractals.
 '''
 class Julia(Fractal):
-    def __init__(self, name, gradient, minX, maxX, minY):
-        Fractal.__init__(self, name, gradient, minX, maxX, minY)
+    def __init__(self, config, gradient, image):
+        Fractal.__init__(self, config, gradient, image)
         self.c = complex(-1.0, 0.0)
 
     def calculateColor(self, row, col):

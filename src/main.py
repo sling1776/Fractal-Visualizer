@@ -27,21 +27,13 @@ if __name__ == '__main__':
 
     else:
         image = sys.argv[1]
-    # determine Fractal Type
+
     fracType = config.getFractal(image)
-    # get configuration data from dictionary
-    cenX = config.getImageInformation('centerX', fracType, image)
-    cenY = config.getImageInformation('centerY', fracType, image)
-    axislen = config.getImageInformation('axisLen', fracType, image)
-    # calculate needed info
-    minx = cenX - (axislen / 2.0)
-    maxx = cenX + (axislen / 2.0)
-    miny = cenY - (axislen / 2.0)
     gradient = Gradient()
     if fracType == "julia":
-        fractal = Julia(image, gradient, minx, maxx, miny)
+        fractal = Julia(config, gradient, image)
     else:
-        fractal = Mandelbrot(image, gradient, minx, maxx, miny)
+        fractal = Mandelbrot(config, gradient, image)
     # make Tkinter window.
     painter = ImagePainter(512, 512, fractal)
 

@@ -4,15 +4,21 @@ class Fractal:
     to determine its minX, minY and maxX. It can calculate the color of a pixel and
     can calculate the needed complex numbers to get the color.
     """
-    def __init__(self, name, gradient, minX, maxX, minY):
+    def __init__(self, config, gradient, image):
         """
         stores name and min/max data. Stores Gradient.
         """
-        self.name = name
+        fracType = config.getFractal(image)
+        # get configuration data from dictionary
+        cenX = config.getImageInformation('centerX', fracType, image)
+        cenY = config.getImageInformation('centerY', fracType, image)
+        axislen = config.getImageInformation('axisLen', fracType, image)
+
+        self.name = image
         self.gradient = gradient
-        self.minX = minX
-        self.maxX = maxX
-        self.minY = minY
+        self.minX = cenX - (axislen / 2.0)
+        self.maxX = cenX + (axislen / 2.0)
+        self.minY = cenY - (axislen / 2.0)
         self.z = complex(0, 0)
         self.pixelSize = abs(self.maxX - self.minX) / 512
 
