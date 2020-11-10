@@ -11,7 +11,7 @@ class Config:
         creates the dictionary
         """
         self.fractals = {
-            'mandlebrot': {
+            'mandelbrot': {
                 'mandelbrot': {
                     'centerX': -0.6,
                     'centerY': 0.0,
@@ -71,21 +71,32 @@ class Config:
         }
 
     def getFractal(self, name):
+        """
+        returns the type of fractal the image is.
+        """
         if name in self.fractals['julia']:
             return "julia"
-        elif name in self.fractals['mandlebrot']:
-            return "mandlebrot"
+        elif name in self.fractals['mandelbrot']:
+            return "mandelbrot"
 
     def getImageType(self, name, fractal):
+        """
+        returns the image
+        """
         for image in self.fractals[fractal]:
             if name == image:
                 return image
 
     def getImageInformation(self, info, fractal, image):
-
+        """
+        returns the specified information in the fractal image.
+        """
         return self.fractals[fractal][image][info]
 
     def getListOfFractalImages(self):
+        """
+        returns a full list of all the Fractal Images.
+        """
         myList = []
         for i in self.fractals:
             for j in self.fractals[i]:

@@ -1,4 +1,9 @@
 class Gradient:
+    """
+    This is the Gradient Class. Essentially it is just a list of different colors. In the
+    future it will be easy to write in a calculation function to get even more colors than
+    these few.
+    """
     def __init__(self):
         self.gradient = [
             '#ffe4b5', '#ffe5b2', '#ffe7ae', '#ffe9ab', '#ffeaa8', '#ffeda4',
@@ -20,7 +25,8 @@ class Gradient:
         ]
 
     def getColor(self, iterations):
-        return self.gradient[iterations]
+        if iterations < self.getLength():
+            return self.gradient[iterations]
 
     def getLength(self):
         return len(self.gradient)

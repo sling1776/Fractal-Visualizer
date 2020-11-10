@@ -24,10 +24,10 @@ class Fractal:
         self.resetZ()
         MAX_ITERATIONS = self.gradient.getLength()
         for i in range(MAX_ITERATIONS):
-            self.z = self.z * self.z + self.calculateComplexNumber(row, col)  # Get z1, z2, ...
+            self.z = self.z * self.z + self.calculateComplexNumber(row, col)
             if abs(self.z) > 2:
-                return self.gradient.getColor(i)  # The sequence is unbounded
-        return self.gradient.getColor(MAX_ITERATIONS - 1)  # Indicate a bounded sequence
+                return self.gradient.getColor(i)
+        return self.gradient.getColor(MAX_ITERATIONS - 1)
 
     def calculateComplexNumber(self, row, col):
         """

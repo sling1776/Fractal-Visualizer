@@ -6,6 +6,10 @@ from Mandelbrot import Mandelbrot
 from Gradient import Gradient
 from tkinter import mainloop
 
+'''
+This is the main Driver Program. It checks for valid input and then creates the image.
+'''
+
 if __name__ == '__main__':
     config = Config()
     if len(sys.argv) < 2:
@@ -23,26 +27,26 @@ if __name__ == '__main__':
 
     else:
         image = sys.argv[1]
-
+    # determine Fractal Type
     fracType = config.getFractal(image)
-    gradient = Gradient()
+    # get configuration data from dictionary
     cenX = config.getImageInformation('centerX', fracType, image)
     cenY = config.getImageInformation('centerY', fracType, image)
     axislen = config.getImageInformation('axisLen', fracType, image)
-
+    # calculate needed info
     minx = cenX - (axislen / 2.0)
     maxx = cenX + (axislen / 2.0)
     miny = cenY - (axislen / 2.0)
-
+    gradient = Gradient()
     if fracType == "julia":
         fractal = Julia(image, gradient, minx, maxx, miny)
     else:
         fractal = Mandelbrot(image, gradient, minx, maxx, miny)
-
+    # make Tkinter window.
     painter = ImagePainter(512, 512, fractal)
-    # TODO: Spencer this make image call probably belongs in main.py
+
     painter.makeImage()
     painter.saveImage()
-    # Call tkinter.mainloop so the GUI remains open
+    # make the window stay open.
     mainloop()
 
