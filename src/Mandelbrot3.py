@@ -1,10 +1,9 @@
 from Fractal import Fractal
 from Gradient import Gradient
-'''
-This is the Julia Fractal. It is an extension of the Fractal Class. It has the unique information
-and calculations needed for the specific fractals.
-'''
-class Julia(Fractal):
+"""
+An Extension of the Fractal Class. Updates the z value and the resetZ function.
+"""
+class Mandelbrot3(Fractal):
     def __init__(self, dictionary):
         self.MAX_ITERATIONS = dictionary['iterations']
         cenX = dictionary['centerx']
@@ -28,7 +27,7 @@ class Julia(Fractal):
         z = self.z
         c = self.c
         for i in range(self.MAX_ITERATIONS):
-            z = z * z + c
+            z = z * z * z + c
             if abs(z) > 2:
                 return i
         return self.MAX_ITERATIONS - 1
@@ -40,4 +39,4 @@ class Julia(Fractal):
         """
         x = self.minX + col * self.pixelSize
         y = self.minY + (self.width-row) * self.pixelSize
-        self.z = complex(x, y)
+        self.c = complex(x, y)

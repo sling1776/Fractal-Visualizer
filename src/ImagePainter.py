@@ -14,17 +14,17 @@ class ImagePainter:
     creates the image of the fractal. It also has the option to save the image.
     """
 
-    def __init__(self, width, height, fractal):
+    def __init__(self, fractal):
         """
         stores the width and height. It also calls setUpGUI to create a new Tkinter
         window. It also stores the fractal that is going to be used to create the
         image.
         """
-        self.width = width
-        self.height = height
-        self.fractal = self.configureImage(fractal)
+        self.width = fractal.getWidth()
+        self.height = fractal.getHeight()
+        self.fractal = fractal
         self.window = Tk()
-        self.img = PhotoImage(width=width, height=height)
+        self.img = PhotoImage(width=self.width, height=self.height)
         self.setUpGUI()
         self.grad = Gradient()
 
@@ -36,7 +36,7 @@ class ImagePainter:
         # Set up the GUI so that we can paint the fractal image on the screen
         canvas = Canvas(self.window, width=self.width, height=self.height, bg=WHITE)
         canvas.pack()
-        canvas.create_image((256, 256), image=self.img, state="normal")
+        canvas.create_image((self.width/2, self.height/2), image=self.img, state="normal")
 
     def makeImage(self):
         """
@@ -66,17 +66,17 @@ class ImagePainter:
         self.img.write(f"{self.fractal.getName()}.png")
         print(f"Wrote image {self.fractal.getName()}.png")
 
-    def configureImage(self, image):
-        config = Config()
-        frac = config.getFractal(image)
-        cenX = config.getImageInformation("centerX", image)
-        cenY = config.getImageInformation("centerY", image)
-        axisLen = config.getImageInformation("axisLen", image)
-        if frac == "julia":
-            fractal = Julia(image, cenX, cenY, axisLen, self.height, self.width)
-        elif frac == "mandelbrot":
-            fractal = Mandelbrot(image, cenX, cenY, axisLen, self.height, self.width)
-        return fractal
+    # def configureImage(self, image):
+    #     config = Config()
+    #     frac = config.getFractal(image)
+    #     cenX = config.getImageInformation("centerX", image)
+    #     cenY = config.getImageInformation("centerY", image)
+    #     axisLen = config.getImageInformation("axisLen", image)
+    #     if frac == "julia":
+    #         fractal = Julia(image, cenX, cenY, axisLen, self.height, self.width)
+    #     elif frac == "mandelbrot":
+    #         fractal = Mandelbrot(image, cenX, cenY, axisLen, self.height, self.width)
+    #     return fractal
 
     def getWidth(self):
         return self.width
