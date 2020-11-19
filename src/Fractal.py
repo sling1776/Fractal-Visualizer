@@ -1,52 +1,50 @@
+from Gradient import Gradient
+
 class Fractal:
     """
-    Is a parent class for the mandlebrot and julia classes. It uses the Config object
+    Is a parent class for the mandelbrot and julia classes. It uses the Config object
     to determine its minX, minY and maxX. It can calculate the color of a pixel and
     can calculate the needed complex numbers to get the color.
     """
-    def __init__(self, config, gradient, image):
+    def __init__(self, image, cenX, cenY, axisLen, height, width):
         """
         stores name and min/max data. Stores Gradient.
         """
-        fracType = config.getFractal(image)
-        # get configuration data from dictionary
-        cenX = config.getImageInformation('centerX', fracType, image)
-        cenY = config.getImageInformation('centerY', fracType, image)
-        axislen = config.getImageInformation('axisLen', fracType, image)
-
         self.name = image
-        self.gradient = gradient
-        self.minX = cenX - (axislen / 2.0)
-        self.maxX = cenX + (axislen / 2.0)
-        self.minY = cenY - (axislen / 2.0)
+        self.MAX_ITERATIONS = Gradient().getLength()
+        self.minX = cenX - (axisLen / 2.0)
+        self.maxX = cenX + (axisLen / 2.0)
+        self.minY = cenY - (axisLen / 2.0)
+        self.height = height
+        self.width = width
         self.z = complex(0, 0)
+        self.c = complex(-1, 0)
         self.pixelSize = abs(self.maxX - self.minX) / 512
 
-    def calculateColor(self, row, col):
+# TODO: Spencer This method might be better if it only returned an integer. Rename it to be iteration count
+    # This can also go in Mandelbrot
+    def calculateIterations(self, row, col):
         """
-        calculates the color of a given pixel
+        calculates the iterations for a set pixel.
         """
-        """Return the color of the current pixel within the Mandelbrot set"""
-        self.resetZ()
-        MAX_ITERATIONS = self.gradient.getLength()
-        for i in range(MAX_ITERATIONS):
-            self.z = self.z * self.z + self.calculateComplexNumber(row, col)
-            if abs(self.z) > 2:
-                return self.gradient.getColor(i)
-        return self.gradient.getColor(MAX_ITERATIONS - 1)
+        self.calculateComplexNumber(row, col)
+        z = self.z
+        c = self.c
+        for i in range(self.MAX_ITERATIONS):
+            z = z * z + c
+            if abs(z) > 2:
+                return i
+        return self.MAX_ITERATIONS - 1
 
     def calculateComplexNumber(self, row, col):
         """
         calculates the needed complex numbers for color calculations
         """
         x = self.minX + col * self.pixelSize
-        y = self.minY + row * self.pixelSize
-        return complex(x, y)
+        y = self.minY + (self.width-row) * self.pixelSize
+        self.z = complex(x, y)
 
     def getName(self):
         return self.name
-
-    def resetZ(self):
-        self.z = complex(0, 0)
 
 

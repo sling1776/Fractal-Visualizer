@@ -4,16 +4,15 @@ This is the Julia Fractal. It is an extension of the Fractal Class. It has the u
 and calculations needed for the specific fractals.
 '''
 class Julia(Fractal):
-    def __init__(self, config, gradient, image):
-        Fractal.__init__(self, config, gradient, image)
+    def __init__(self, image, cenX, cenY, axisLen, height, width):
+        Fractal.__init__(self, image, cenX, cenY, axisLen, height, width)
         self.c = complex(-1.0, 0.0)
 
-    def calculateColor(self, row, col):
-        self.resetZ()
-        MAX_ITERATIONS = 78
-        z = self.calculateComplexNumber(row, col)
-        for i in range(MAX_ITERATIONS):
-            z = z * z + self.c  # note: This is not the same as a mandelbrot z.
-            if abs(z) > 2:
-                return self.gradient.getColor(i)
-        return self.gradient.getColor(MAX_ITERATIONS - 1)
+    def calculateComplexNumber(self, row, col):
+        """
+        @Override
+        calculates the needed complex numbers for color calculations
+        """
+        x = self.minX + col * self.pixelSize
+        y = self.minY + (self.width-row) * self.pixelSize
+        self.z = complex(x, y)

@@ -12,86 +12,87 @@ class Config:
         """
         self.fractals = {
             'mandelbrot': {
-                'mandelbrot': {
-                    'centerX': -0.6,
-                    'centerY': 0.0,
-                    'axisLen': 2.5,
-                },
-
-                'spiral0': {
-                    'centerX': -0.761335372924805,
-                    'centerY': 0.0835704803466797,
-                    'axisLen': 0.004978179931102462,
-                },
-
-                'spiral1': {
-                    'centerX': -0.747,
-                    'centerY': 0.1075,
-                    'axisLen': 0.002,
-                },
-
-                'seahorse': {
-                    'centerX': -0.745,
-                    'centerY': 0.105,
-                    'axisLen': 0.01,
-                },
-
-                'elephants': {
-                    'centerX': 0.30820836067024604,
-                    'centerY': 0.030620936230004017,
-                    'axisLen': 0.03,
-                },
-
-                'leaf': {
-                    'centerX': -1.543577002,
-                    'centerY': -0.000058690069,
-                    'axisLen': 0.000051248888,
-                },
+                'centerX': -0.6,
+                'centerY': 0.0,
+                'axisLen': 2.5,
+                'type': 'mandelbrot'
             },
-            'julia': {
-                'fulljulia': {
-                    'centerX': 0.0,
-                    'centerY': 0.0,
-                    'axisLen': 4.0,
-                },
 
-                'hourglass': {
-                    'centerX': 0.618,
-                    'centerY': 0.00,
-                    'axisLen': 0.017148277367054,
-                },
+            'spiral0': {
+                'centerX': -0.761335372924805,
+                'centerY': 0.0835704803466797,
+                'axisLen': 0.004978179931102462,
+                'type': 'mandelbrot'
+            },
 
-                'lakes': {
-                    'centerX': -0.339230468501458,
-                    'centerY': 0.417970758224314,
-                    'axisLen': 0.164938488846612,
-                },
+            'spiral1': {
+                'centerX': -0.747,
+                'centerY': 0.1075,
+                'axisLen': 0.002,
+                'type': 'mandelbrot'
+            },
 
-            }
+            'seahorse': {
+                'centerX': -0.745,
+                'centerY': 0.105,
+                'axisLen': 0.01,
+                'type': 'mandelbrot'
+            },
+
+            'elephants': {
+                'centerX': 0.30820836067024604,
+                'centerY': 0.030620936230004017,
+                'axisLen': 0.03,
+                'type': 'mandelbrot'
+            },
+
+            'leaf': {
+                'centerX': -1.543577002,
+                'centerY': -0.000058690069,
+                'axisLen': 0.000051248888,
+                'type': 'mandelbrot'
+            },
+            'fulljulia': {
+                'centerX': 0.0,
+                'centerY': 0.0,
+                'axisLen': 4.0,
+                'type': 'julia'
+            },
+
+            'hourglass': {
+                'centerX': 0.618,
+                'centerY': 0.00,
+                'axisLen': 0.017148277367054,
+                'type': 'julia'
+            },
+
+            'lakes': {
+                'centerX': -0.339230468501458,
+                'centerY': 0.417970758224314,
+                'axisLen': 0.164938488846612,
+                'type': 'julia'
+            },
         }
 
     def getFractal(self, name):
         """
         returns the type of fractal the image is.
         """
-        if name in self.fractals['julia']:
-            return "julia"
-        elif name in self.fractals['mandelbrot']:
-            return "mandelbrot"
+        if name in self.fractals:
+            return self.fractals[name]['type']
 
-    def getImageType(self, name, fractal):
+    def getImageType(self, name):
         """
         returns the image
         """
-        for image in self.fractals[fractal]:
-            if name == image:
-                return image
+        if name in self.fractals:
+            return name
 
-    def getImageInformation(self, info, fractal, image):
+    def getImageInformation(self, info, image):
         """
         returns the specified information in the fractal image.
         """
-        return self.fractals[fractal][image][info]
+        return self.fractals[image][info]
 
     def getListOfFractalImages(self):
         """
@@ -99,7 +100,6 @@ class Config:
         """
         myList = []
         for i in self.fractals:
-            for j in self.fractals[i]:
-                myList.append(j)
+            myList.append(i)
         return myList
 

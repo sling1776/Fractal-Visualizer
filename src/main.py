@@ -28,14 +28,7 @@ if __name__ == '__main__':
     else:
         image = sys.argv[1]
 
-    fracType = config.getFractal(image)
-    gradient = Gradient()
-    if fracType == "julia":
-        fractal = Julia(config, gradient, image)
-    else:
-        fractal = Mandelbrot(config, gradient, image)
-    # make Tkinter window.
-    painter = ImagePainter(512, 512, fractal)
+    painter = ImagePainter(512, 512, image)
 
     painter.makeImage()
     painter.saveImage()
