@@ -1,7 +1,7 @@
 import unittest
-from Gradient import Gradient
+from GradientFiles.Gradient import Gradient
 from Config import Config
-from Mandelbrot import Mandelbrot
+from FractalFiles.Mandelbrot import Mandelbrot
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py

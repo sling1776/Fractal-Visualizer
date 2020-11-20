@@ -1,9 +1,10 @@
-from Fractal import Fractal
-from Gradient import Gradient
-"""
-An Extension of the Fractal Class. Updates the z value and the resetZ function.
-"""
-class Mandelbrot(Fractal):
+from FractalFiles.Fractal import Fractal
+
+'''
+This is the Julia Fractal. It is an extension of the Fractal Class. It has the unique information
+and calculations needed for the specific fractals.
+'''
+class Julia(Fractal):
     def __init__(self, dictionary):
         self.MAX_ITERATIONS = dictionary['iterations']
         cenX = dictionary['centerx']
@@ -11,7 +12,6 @@ class Mandelbrot(Fractal):
         axisLen = dictionary['axislength']
         self.width = dictionary['pixels']
         self.height = dictionary['pixels']
-        print(self.MAX_ITERATIONS, cenX, cenY, axisLen,self.width)
 
         self.minX = cenX - (axisLen / 2.0)
         self.maxX = cenX + (axisLen / 2.0)
@@ -41,7 +41,7 @@ class Mandelbrot(Fractal):
         """
         x = self.minX + col * self.pixelSize
         y = self.minY + (self.width-row) * self.pixelSize
-        self.c = complex(x, y)
+        self.z = complex(x, y)
 
     def getWidth(self):
         return self.width

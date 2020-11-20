@@ -1,5 +1,5 @@
 import unittest
-from Gradient import Gradient
+from GradientFiles.Gradient import Gradient
 
 # autocmd BufWritePost <buffer> !python3 runTests.py
 

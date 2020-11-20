@@ -1,6 +1,6 @@
 import unittest
-from Julia import Julia
-from Gradient import Gradient
+from FractalFiles.Julia import Julia
+from GradientFiles.Gradient import Gradient
 from Config import Config
 
 

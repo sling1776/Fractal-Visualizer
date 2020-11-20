@@ -1,0 +1,8 @@
+type: julia3
+creal: 0.4
+cimag: 0.002275
+pixels: 512
+centerx: 0.0
+centery: 0.0
+axislength: 4
+iterations: 100

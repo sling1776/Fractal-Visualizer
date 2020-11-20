@@ -1,5 +1,3 @@
-from Gradient import Gradient
-
 class Fractal:
     """
     Is a parent class for the mandelbrot and julia classes. It uses the Config object

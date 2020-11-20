@@ -1,6 +1,9 @@
-from Julia import Julia
-from Mandelbrot import Mandelbrot
-from Mandelbrot3 import Mandelbrot3
+from FractalFiles.Julia import Julia
+from FractalFiles.Mandelbrot import Mandelbrot
+from FractalFiles.Mandelbrot3 import Mandelbrot3
+from FractalFiles.Mandelbrot4 import Mandelbrot4
+from FractalFiles.BurningShipJulia import BurningShipJulia
+from FractalFiles.Julia3 import Julia3
 import sys
 
 
@@ -13,7 +16,7 @@ class FractalFactory:
                                   'centerx': 0.0,
                                   'centery': 0.0,
                                   'axislength': 4.0,
-                                  'iterations': 78
+                                  'iterations': 100
                                   }
 
     def makeFractal(self, fractalFile=""):
@@ -22,7 +25,6 @@ class FractalFactory:
         a default fractal. It uses the configuration file to make the fractal object.
         """
         if fractalFile != "":
-            # this part we will open the file
             file = open(fractalFile)
             dic = self.extractFileContents(file)
             if dic['type'] == "mandelbrot":
@@ -31,6 +33,12 @@ class FractalFactory:
                 fractal = Julia(dic)
             elif dic['type'] == "mandelbrot3":
                 fractal = Mandelbrot3(dic)
+            elif dic['type'] == "mandelbrot4":
+                fractal = Mandelbrot4(dic)
+            elif dic['type'] == "burningshipjulia":
+                fractal = BurningShipJulia(dic)
+            elif dic['type'] == "julia3":
+                fractal = Julia3(dic)
         else:
             fractal = Mandelbrot(self.defaultDictionary)
 

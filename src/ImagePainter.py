@@ -1,12 +1,5 @@
 from tkinter import Tk, Canvas, PhotoImage
-from Gradient import Gradient
-from Config import Config
-from Julia import Julia
-from Mandelbrot import Mandelbrot
-
-# TODO: Spencer This is the only file that needs the TKinter.
-# setup Gui: will make TK() window. then will create the image.
-# put the window and the image right next to where you use it.
+from GradientFactory import GradientFactory
 
 class ImagePainter:
     """
@@ -14,7 +7,7 @@ class ImagePainter:
     creates the image of the fractal. It also has the option to save the image.
     """
 
-    def __init__(self, fractal):
+    def __init__(self, fractal, gradient):
         """
         stores the width and height. It also calls setUpGUI to create a new Tkinter
         window. It also stores the fractal that is going to be used to create the
@@ -26,7 +19,7 @@ class ImagePainter:
         self.window = Tk()
         self.img = PhotoImage(width=self.width, height=self.height)
         self.setUpGUI()
-        self.grad = Gradient()
+        self.grad = self.developGradient(gradient)
 
     def setUpGUI(self):
         """
@@ -66,17 +59,8 @@ class ImagePainter:
         self.img.write(f"{self.fractal.getName()}.png")
         print(f"Wrote image {self.fractal.getName()}.png")
 
-    # def configureImage(self, image):
-    #     config = Config()
-    #     frac = config.getFractal(image)
-    #     cenX = config.getImageInformation("centerX", image)
-    #     cenY = config.getImageInformation("centerY", image)
-    #     axisLen = config.getImageInformation("axisLen", image)
-    #     if frac == "julia":
-    #         fractal = Julia(image, cenX, cenY, axisLen, self.height, self.width)
-    #     elif frac == "mandelbrot":
-    #         fractal = Mandelbrot(image, cenX, cenY, axisLen, self.height, self.width)
-    #     return fractal
+    def developGradient(self, gradient):
+        return GradientFactory().makeGradient(gradient, self.fractal.MAX_ITERATIONS)
 
     def getWidth(self):
         return self.width
