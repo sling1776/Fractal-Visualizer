@@ -2,8 +2,9 @@ from FractalFiles.Julia import Julia
 from FractalFiles.Mandelbrot import Mandelbrot
 from FractalFiles.Mandelbrot3 import Mandelbrot3
 from FractalFiles.Mandelbrot4 import Mandelbrot4
-from FractalFiles.BurningShipJulia import BurningShipJulia
+from FractalFiles.BurningShip import BurningShip
 from FractalFiles.Julia3 import Julia3
+from FractalFiles.BurningShipJulia import BurningShipJulia
 import sys
 
 
@@ -39,6 +40,8 @@ class FractalFactory:
                 fractal = BurningShipJulia(dic)
             elif dic['type'] == "julia3":
                 fractal = Julia3(dic)
+            elif dic['type'] == "burningship":
+                fractal = BurningShip(dic)
         else:
             fractal = Mandelbrot(self.defaultDictionary)
 

@@ -1,7 +1,5 @@
-# burning ship julia
-type: burningshipjulia
-creal: -.598
-cimag: .9225
+# burning ship
+type: burningship
 centerx: 0
 centery: 0
 axislength: 4

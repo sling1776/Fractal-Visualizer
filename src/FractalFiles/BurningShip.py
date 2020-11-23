@@ -4,7 +4,7 @@ from FractalFiles.Fractal import Fractal
 This is the Julia Fractal. It is an extension of the Fractal Class. It has the unique information
 and calculations needed for the specific fractals.
 '''
-class BurningShipJulia(Fractal):
+class BurningShip(Fractal):
     def __init__(self, dictionary):
         self.MAX_ITERATIONS = dictionary['iterations']
         cenX = dictionary['centerx']
@@ -44,7 +44,7 @@ class BurningShipJulia(Fractal):
         """
         x = self.minX + col * self.pixelSize
         y = self.minY + (self.width-row) * self.pixelSize
-        self.z = complex(x, y)
+        self.c = complex(x, y)
 
     def getWidth(self):
         return self.width
