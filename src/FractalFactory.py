@@ -53,7 +53,7 @@ class FractalFactory:
             if (not line.startswith("#")) and (": " in line):
                 l = line.split(": ")
                 key = l[0].lower()
-                value = l[1].rstrip("\n").lower()
+                value = l[1].rstrip("\n").strip().lower()
                 if value.isdigit():
                     value = int(value)
                 elif self.isFloat(value):

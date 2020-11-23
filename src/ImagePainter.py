@@ -51,13 +51,19 @@ class ImagePainter:
             color = self.grad.getColor(count)
             self.img.put(color, (col, row))
 
-    def saveImage(self):
+    def saveImage(self, fileName="mandelbrot.frac"):
         """
         gets the name from the fractal and then saves the image as a PNG to the CWD.
         """
         # Save the image as a PNG
-        self.img.write(f"{self.fractal.getName()}.png")
-        print(f"Wrote image {self.fractal.getName()}.png")
+        if fileName == "":
+            fileName = "mandelbrot.frac"
+        directories = fileName.split("/")
+        for n in directories:
+            if ".frac" in n:
+                name = n.rstrip(".frac")
+        self.img.write(f"{name}.png")
+        print(f"Wrote image {name}.png")
 
     def developGradient(self, gradient):
         return GradientFactory().makeGradient(gradient, self.fractal.MAX_ITERATIONS)

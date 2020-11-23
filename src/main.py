@@ -25,7 +25,7 @@ if __name__ == '__main__':
     painter = ImagePainter(fractal, grad)
 
     painter.makeImage()
-    #painter.saveImage()
+    painter.saveImage(image)
     # make the window stay open.
     mainloop()
 
