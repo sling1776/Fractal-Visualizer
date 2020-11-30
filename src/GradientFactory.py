@@ -2,13 +2,14 @@ from GradientFiles.Greyscale import Greyscale
 from GradientFiles.StandGradient import StandGradient
 from GradientFiles.RedToWhite import RedToWhite
 from GradientFiles.BlueGreen import BlueGreen
+from GradientFiles.threeColor import ThreeColor
 
 class GradientFactory:
     def __init__(self):
         """
 
         """
-        self.gradientList = ["standgradient", "redtowhite", "greyscale", "bluegreen"]
+        self.gradientList = ["standgradient", "redtowhite", "greyscale", "bluegreen", "threecolor"]
 
     def makeGradient(self, name, number):
         if name in self.gradientList:
@@ -20,6 +21,8 @@ class GradientFactory:
                 return Greyscale(number)
             elif name == self.gradientList[3]:
                 return BlueGreen(number)
+            elif name == self.gradientList[4]:
+                return ThreeColor(number)
         elif name == "":
             return StandGradient(number)
         else:
