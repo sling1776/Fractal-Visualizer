@@ -5,6 +5,7 @@ An Extension of the Fractal Class. Updates the z value and the resetZ function.
 """
 class Mandelbrot(Fractal):
     def __init__(self, dictionary):
+        self.checkDictionary(dictionary)
         self.MAX_ITERATIONS = dictionary['iterations']
         cenX = dictionary['centerx']
         cenY = dictionary['centery']

@@ -24,6 +24,19 @@ class Fractal:
         """
         raise NotImplementedError("Concrete subclass of Fractal must implement calculateComplexNumber() method")
 
-
-
-
+    def checkDictionary(self, dictionary):
+        if 'iterations' not in dictionary.keys():
+            raise NotImplementedError("Invalid Fractal File: missing iterations")
+        if 'centerx' not in dictionary.keys():
+            raise NotImplementedError("Invalid Fractal File: missing centerx")
+        if 'centery' not in dictionary.keys():
+            raise NotImplementedError("Invalid Fractal File: missing centery")
+        if 'axislength' not in dictionary.keys():
+            raise NotImplementedError("Invalid Fractal File: missing axislength")
+        if 'pixels' not in dictionary.keys():
+            raise NotImplementedError("Invalid Fractal File: missing pixels")
+        if not (isinstance(dictionary['pixels'], int)):
+            raise NotImplementedError("Invalid Fractal File: pixels must be integer")
+        if not (isinstance(dictionary['iterations'], int)):
+            raise NotImplementedError("Invalid Fractal File: iterations must be integer")
+        return True

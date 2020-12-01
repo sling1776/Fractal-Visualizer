@@ -6,6 +6,7 @@ and calculations needed for the specific fractals.
 '''
 class Julia(Fractal):
     def __init__(self, dictionary):
+        self.checkDictionary(dictionary)
         self.MAX_ITERATIONS = dictionary['iterations']
         cenX = dictionary['centerx']
         cenY = dictionary['centery']

@@ -28,7 +28,9 @@ class FractalFactory:
         if fractalFile != "":
             file = open(fractalFile)
             dic = self.extractFileContents(file)
-            if dic['type'] == "mandelbrot":
+            if 'type' not in dic.keys():
+                raise NotImplementedError("Invalid Fractal File")
+            elif dic['type'] == "mandelbrot":
                 fractal = Mandelbrot(dic)
             elif dic['type'] == "julia":
                 fractal = Julia(dic)
@@ -42,6 +44,7 @@ class FractalFactory:
                 fractal = Julia3(dic)
             elif dic['type'] == "burningship":
                 fractal = BurningShip(dic)
+
         else:
             fractal = Mandelbrot(self.defaultDictionary)
 

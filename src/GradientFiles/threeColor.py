@@ -11,12 +11,12 @@ class ThreeColor(Gradient):
         self.middleColor = colour.Color("Blue")
         self.endColor = colour.Color("purple")
         iterationNumber = math.ceil((math.log2(number)))
-        colorList1 = list(self.startColor.range_to(self.middleColor, iterationNumber))
-        self.cList = []
-        for i in range(len(colorList1)):
-            colorList2 = list(colorList1[i].range_to(self.endColor, math.ceil(number / iterationNumber)))
-            for item in colorList2:
-                self.cList.append(item)
+        cList1 = list(self.startColor.range_to(self.middleColor, iterationNumber))
+        self.colorList = []
+        for i in range(len(cList1)):
+            cList2 = list(cList1[i].range_to(self.endColor, math.ceil(number / iterationNumber)))
+            for item in cList2:
+                self.colorList.append(item)
 
     def getColor(self, i):
-        return self.cList[i].get_hex_l()
+        return self.colorList[i].get_hex_l()

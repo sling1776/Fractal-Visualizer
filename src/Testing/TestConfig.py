@@ -1,5 +1,5 @@
 import unittest
-from Config import Config
+from oldFiles.Config import Config
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py

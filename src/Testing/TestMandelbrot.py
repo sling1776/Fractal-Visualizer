@@ -1,6 +1,6 @@
 import unittest
 from GradientFiles.Gradient import Gradient
-from Config import Config
+from oldFiles.Config import Config
 from FractalFiles.Mandelbrot import Mandelbrot
 
 

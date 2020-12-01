@@ -1,7 +1,7 @@
 import unittest
 from FractalFiles.Julia import Julia
 from GradientFiles.Gradient import Gradient
-from Config import Config
+from oldFiles.Config import Config
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py
