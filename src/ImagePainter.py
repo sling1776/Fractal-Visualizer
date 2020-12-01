@@ -61,7 +61,7 @@ class ImagePainter:
         directories = fileName.split("/")
         for n in directories:
             if ".frac" in n:
-                name = n.rstrip(".frac")
+                name = n.rsplit(".", 1)[0]
         self.img.write(f"{name}.png")
         print(f"Wrote image {name}.png")
 
