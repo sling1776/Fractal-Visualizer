@@ -44,6 +44,8 @@ class FractalFactory:
                 fractal = Julia3(dic)
             elif dic['type'] == "burningship":
                 fractal = BurningShip(dic)
+            else:
+                fractal = None
 
         else:
             fractal = Mandelbrot(self.defaultDictionary)

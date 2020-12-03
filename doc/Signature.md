@@ -13,5 +13,6 @@
 | November 22 | made burningship fractal files.
 | November 23 | fixed small bug in reading .frac files
 | November 30 | added a new gradient file. updated signature doc and users manual
-| December 01 | 
+| December 01 | fixed a few bugs in program.
+| December 03 | added unit tests to the program and adjusted a few minor things.
 

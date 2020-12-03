@@ -10,8 +10,6 @@ class Fractal:
         """
         raise NotImplementedError("Concrete subclass of Fractal must implement __init__")
 
-# TODO: Spencer This method might be better if it only returned an integer. Rename it to be iteration count
-    # This can also go in Mandelbrot
     def calculateIterations(self, row, col):
         """
         calculates the iterations for a set pixel.

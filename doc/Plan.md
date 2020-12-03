@@ -253,3 +253,137 @@ pictures for all the different types of fractals.
 Once it is done running through all the commands, you can navigate back to the src/ directory and run
     $ python runTests.py 
 This time you will see that the TestImplementation did not get skipped and that it passed. 
+
+*********************************************************************************************************************
+
+# Plan for Assn 4.1
+
+# 0.  From Problem Analysis to Data Definitions
+I need to make it simple to add in new gradients and fractal types. This will require a fractal factory and a gradient
+factory. I will likely not need the config.py file because I will be using the .frac files for that. 
+
+
+# 1.  System Analysis
+
+Class ImagePainter():
+    """
+    Stores the width and height of the Tkinter window. It creates the window and 
+    creates the image of the fractal. It also has the option to save the image.
+    """
+    def __init__(self, width, height):
+        """
+        stores the width and height. It also calls setUpGUI to create a ne Tkinter 
+        window. It also stores the fractal that is going to be used to create the 
+        image.
+        """
+    def setUpGUI(self):
+        """
+        sets up a new tkinter window given the width and height.
+        """
+    def makeImage(self):
+        """
+        takes a Fractal Object and creates the image. Calls makeRow() repeatedly and 
+        updates the image after every call.
+        """
+    def makeRow(self, column):
+        """
+        Takes a fractal and calculates the colors of each pixel in a row by calling the
+        Fractal Objects calculateColor method. 
+        """
+    def saveImage(self):
+        """
+        gets the name from the fractal and then saves the image as a PNG to the CWD.
+        """
+    def getWidth():
+    def getHeight():
+    def developGradient(self, gradient):
+    
+    
+Class FractalFactory():
+    """
+    This is a creator method. It creates the desired fractal object.
+    """
+    def makeFractal(self, fractalFile):
+        """
+        determines the fractal that is desired and creates it. 
+        """
+    def extractFileContents(self, file):
+        """
+        extracts the contents from the file. 
+        """
+Class Fractal():
+    """
+    Is a parent class for the mandlebrot and julia classes. It uses the Config object
+    to determine its minX, minY and maxX. It can calculate the color of a pixel and
+    can calculate the needed complex numbers to get the color.
+    """
+    def __init__(self, name, gradient, minX, maxX, minY):
+        """
+        stores name and min/max data. Stores Gradient.
+        """
+    def calculateIterations():
+        """
+        calculates the color of a given pixel
+        """
+    def calculateComplexNumber():
+        """
+        calcualtes the needed complex numbers for color calculations
+        """
+    def checkDictionary(dictionary):
+        """
+        checks to make sure the dictionary is valid and has everything it needs. 
+        """
+    
+        
+Class GradientFactory():
+    """
+    Determines the desired gradient and creates it. has a default setting as well.
+    """
+    def makeGradient(name, number):
+        """
+        determines what the desired gradient is and will make the gradient
+        """
+Class Gradient():
+    """
+    makes an array and has a function to give you the color.
+    """
+    def __init__(self):
+        """
+        create color array.
+        """
+    def getColor(self, iterations):
+    
+    
+def main():
+    """
+    is the main driver for the program. gets info from the user and passes it to the needed 
+    objects. 
+    """
+    
+
+# 2.  Functional Examples
+
+mostly the same as in 4.0.
+
+Class GradientFactory():
+    def makeGradient(name, number):
+        determine the needed gradient and make it
+
+Class FractalFactory():
+    def makeFractal(self, fractalFile):
+        determine the desired fractal
+        call the needed constructor to make the fractal.
+    def extractFileContents(self, file):
+        get the needed info from the file and turn it into a dictionary to 
+            pass to the fractal the program makes.
+        
+
+# 3.  Function Template
+
+
+# 4.  Implementation
+
+Done
+
+# 5.  Testing
+

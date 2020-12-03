@@ -1,10 +1,10 @@
 import unittest
 
-from Testing import TestIntegration, TestMandelbrot, TestJulia, TestConfig, TestGradient
+from Testing import testFractal, testGradient, testFractalFactory, testGradientFactory
 
 
 suite = unittest.TestSuite()
-tests = (TestConfig.TestConfig, TestGradient.TestGradient, TestJulia.TestJulia, TestMandelbrot.TestMandelbrot,TestIntegration.TestIntegration)
+tests = (testFractalFactory.TestFractalFactory, testFractal.TestFractal, testGradientFactory.TestGradientFactory, testGradient.TestGradient)
 
 for test in tests:
     suite.addTest(unittest.makeSuite(test))
