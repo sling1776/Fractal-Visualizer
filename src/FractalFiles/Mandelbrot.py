@@ -18,7 +18,10 @@ class Mandelbrot(Fractal):
         self.minY = cenY - (axisLen / 2.0)
 
         self.z = complex(0, 0)
-        self.c = complex(-1, 0)
+        if "creal" in dictionary and "cimag" in dictionary:
+            self.c = complex(dictionary['creal'], dictionary['cimag'])
+        else:
+            self.c = complex(-1, 0)
         self.pixelSize = abs(self.maxX - self.minX) / self.width
 
     def calculateIterations(self, row, col):

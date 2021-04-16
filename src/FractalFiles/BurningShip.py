@@ -1,30 +1,13 @@
 from FractalFiles.Fractal import Fractal
+from FractalFiles.Mandelbrot import Mandelbrot
 
 '''
 This is the Julia Fractal. It is an extension of the Fractal Class. It has the unique information
 and calculations needed for the specific fractals.
 '''
-class BurningShip(Fractal):
+class BurningShip(Mandelbrot):
     def __init__(self, dictionary):
-        self.checkDictionary(dictionary)
-
-        self.MAX_ITERATIONS = dictionary['iterations']
-        cenX = dictionary['centerx']
-        cenY = dictionary['centery']
-        axisLen = dictionary['axislength']
-        self.width = dictionary['pixels']
-        self.height = dictionary['pixels']
-
-        self.minX = cenX - (axisLen / 2.0)
-        self.maxX = cenX + (axisLen / 2.0)
-        self.minY = cenY - (axisLen / 2.0)
-
-        self.z = complex(0, 0)
-        if "creal" in dictionary and "cimag" in dictionary:
-            self.c = complex(dictionary['creal'], dictionary['cimag'])
-        else:
-            self.c = complex(-1, 0)
-        self.pixelSize = abs(self.maxX - self.minX) / self.width
+        super().__init__(dictionary)
 
     def calculateIterations(self, row, col):
         """

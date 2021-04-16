@@ -20,7 +20,7 @@ class Julia(Fractal):
 
         self.z = complex(0, 0)
 
-        if 'creal' in dictionary.keys and 'cimag' in dictionary.keys:
+        if 'creal' in dictionary.keys() and 'cimag' in dictionary.keys():
             self.c = complex(dictionary['creal'], dictionary['cimag'])
         else:
             self.c = complex(-1, 0)

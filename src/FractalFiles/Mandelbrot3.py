@@ -1,25 +1,12 @@
 from FractalFiles.Fractal import Fractal
+from FractalFiles.Mandelbrot import Mandelbrot
 
 """
 An Extension of the Fractal Class. Updates the z value and the resetZ function.
 """
-class Mandelbrot3(Fractal):
+class Mandelbrot3(Mandelbrot):
     def __init__(self, dictionary):
-        self.checkDictionary(dictionary)
-        self.MAX_ITERATIONS = dictionary['iterations']
-        cenX = dictionary['centerx']
-        cenY = dictionary['centery']
-        axisLen = dictionary['axislength']
-        self.width = dictionary['pixels']
-        self.height = dictionary['pixels']
-
-        self.minX = cenX - (axisLen / 2.0)
-        self.maxX = cenX + (axisLen / 2.0)
-        self.minY = cenY - (axisLen / 2.0)
-
-        self.z = complex(0, 0)
-        self.c = complex(-1, 0)
-        self.pixelSize = abs(self.maxX - self.minX) / self.width
+        super().__init__(dictionary)
 
     def calculateIterations(self, row, col):
         """
